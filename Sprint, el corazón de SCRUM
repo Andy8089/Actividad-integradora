@@ -1,0 +1,36 @@
+python
+class UserStory:
+    def __init__(self, id, description, priority):
+        self.id = id
+        self.description = description
+        self.priority = priority
+        self.tasks = []
+
+    def add_task(self, task):
+        self.tasks.append(task)
+
+class Task:
+    def __init__(self, id, description, status='To Do'):
+        self.id = id
+        self.description = description
+        self.status = status
+
+class Sprint:
+    def __init__(self, sprint_number):
+        self.sprint_number = sprint_number
+        self.user_stories = []
+
+    def add_user_story(self, user_story):
+        self.user_stories.append(user_story)
+python
+def plan_sprint(sprint, user_stories):
+    print(f'Iniciando la planificación del Sprint #{sprint.sprint_number}')
+    for story in user_stories:
+        sprint.add_user_story(story)
+        print(f'Historia de usuario añadida: {story.description}')
+
+def display_sprint(sprint):
+    print(f'Sprint #{sprint.sprint_number} contiene las siguientes historias de usuario:')
+    for story in sprint.user_stories:
+        print(f' - {story.description} (Prioridad: {story.priority})')
+
